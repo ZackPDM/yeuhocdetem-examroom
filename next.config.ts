@@ -1,8 +1,23 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from 'next';
+
+const isProd = process.env.NODE_ENV === 'production';
+
+const nextConfig: NextConfig = {
+  // 1. Enable static export
   output: 'export',
-  // If you use next/image, you might also need to disable default image optimization:
-  // images: { unoptimized: true },
+
+  // 2. Optional: Change links /me -> /me/ and emit /me.html -> /me/index.html
+  // Recommended for GitHub Pages to avoid 404s on refresh
+  trailingSlash: true,
+
+  // 3. Set the base path (only if your site is NOT on a custom domain)
+  // Replace 'your-repo-name' with your actual GitHub repository name
+  basePath: isProd ? '/your-repo-name' : '',
+
+  // 4. Disable server-side image optimization (not supported in static exports)
+  images: {
+    unoptimized: true,
+  },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
