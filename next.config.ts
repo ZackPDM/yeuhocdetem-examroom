@@ -1,10 +1,10 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  reactStrictMode: true,
+const nextConfig = {
+  output: 'export',
   images: {
-    domains: ["localhost"],
+    unoptimized: true
   },
+  basePath: '/yeuhocdetem-examroom',
+  assetPrefix: '/yeuhocdetem-examroom/',
 };
 
-export default nextConfig;
+module.exports = nextConfig;
