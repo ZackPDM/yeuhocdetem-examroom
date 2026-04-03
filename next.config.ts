@@ -1,10 +1,8 @@
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  images: {
-    unoptimized: true
-  },
-  basePath: '/yeuhocdetem-examroom',
-  assetPrefix: '/yeuhocdetem-examroom/',
+  // If you use next/image, you might also need to disable default image optimization:
+  // images: { unoptimized: true },
 };
 
 module.exports = nextConfig;
